@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f8f3ea;
+  --color-cream-dark: #efe6d3;
+  --color-maroon: #7a0c1e;
+  --color-maroon-dark: #500813;
+  --color-gold: #c9a227;
+  --color-gold-light: #e2c766;
+
+  --font-display: "Playfair Display", "Cormorant Garamond", serif;
+  --font-script: "Cormorant Garamond", "Playfair Display", serif;
+  --font-body: "EB Garamond", "Cormorant Garamond", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-maroon);
+  color: var(--color-maroon-dark);
+  font-family: var(--font-body);
+}
+
+/* Maroon page backdrop with a subtle low-opacity repeating floral motif. */
+.floral-backdrop {
+  background-color: var(--color-maroon);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110' viewBox='0 0 110 110'%3E%3Cg fill='none' stroke='%23e2c766' stroke-width='1.1' opacity='0.22'%3E%3Cpath d='M55 20c7 9.5 7 19 0 28.5-7-9.5-7-19 0-28.5Z'/%3E%3Cpath d='M55 61.5c7 9.5 7 19 0 28.5-7-9.5-7-19 0-28.5Z'/%3E%3Cpath d='M20 55c9.5-7 19-7 28.5 0-9.5 7-19 7-28.5 0Z'/%3E%3Cpath d='M61.5 55c9.5-7 19-7 28.5 0-9.5 7-19 7-28.5 0Z'/%3E%3Ccircle cx='55' cy='55' r='5.5'/%3E%3Ccircle cx='55' cy='55' r='1.6' fill='%23e2c766'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Ornamental frame: scalloped gold double-line edges on top/bottom,
+   straight gold double-line borders on the sides, rounded corners. */
+.ornate-frame {
+  --card-radius: 1.75rem;
+  position: relative;
+  border-radius: var(--card-radius);
+  border-left: 1px solid var(--color-gold);
+  border-right: 1px solid var(--color-gold);
+  box-shadow:
+    inset 5px 0 0 -4px var(--color-gold),
+    inset -5px 0 0 -4px var(--color-gold);
+}
+
+.ornate-frame::before,
+.ornate-frame::after {
+  content: "";
+  position: absolute;
+  left: var(--card-radius);
+  right: var(--card-radius);
+  height: 16px;
+  background-image: radial-gradient(
+    circle at 50% 0,
+    transparent 8px,
+    var(--color-gold) 8.5px,
+    var(--color-gold) 10.5px,
+    transparent 11px
+  );
+  background-size: 24px 16px;
+  background-repeat: repeat-x;
+  background-position: center top;
+  pointer-events: none;
+}
+
+.ornate-frame::before {
+  top: -15px;
+}
+
+.ornate-frame::after {
+  bottom: -15px;
+  transform: scaleY(-1);
+}
+
+@keyframes lightbox-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightbox-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tap-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes sparkle-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(0deg);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1) rotate(15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.6) rotate(25deg);
+  }
+}
