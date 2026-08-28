@@ -15,7 +15,9 @@ export default function Footer() {
       </p>
 
       <p className="mt-2 font-script text-2xl text-cream">
-        The families of Saiprasanth &amp; Janani
+        The families of
+        <br />
+        Saiprasanth &amp; Janani
       </p>
 
       <div className="mx-auto mt-10 h-px w-24 bg-gold/40" />
