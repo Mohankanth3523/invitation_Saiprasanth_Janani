@@ -1,14 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import OrnamentDivider from './OrnamentDivider'
 
-const HERO = { id: 9, alt: 'Saiprasanth and Janani, pre-wedding photograph' }
-
-const GRID = [1, 8, 12, 3].map((id) => ({
+const ALL = [3, 1, 12].map((id) => ({
   id,
   alt: 'Saiprasanth and Janani, pre-wedding photograph',
 }))
-
-const ALL = [HERO, ...GRID]
 
 function thumbSrc(id) {
   return `/gallery/thumb/gallery-${String(id).padStart(2, '0')}.jpg`
@@ -82,37 +78,20 @@ export default function Gallery() {
         Every picture tells a story, every moment becomes a memory.
       </p>
 
-      <div className="mx-auto mt-12 max-w-3xl sm:mt-16">
-        <button
-          type="button"
-          onClick={() => setLightboxIndex(0)}
-          className="group block w-full overflow-hidden rounded-2xl border border-gold bg-cream-dark/40"
-          style={{ boxShadow: '0 0 0 5px var(--color-cream), 0 0 0 6px var(--color-gold)' }}
-          aria-label="Open featured photograph"
-        >
-          <img
-            src={thumbSrc(HERO.id)}
-            alt={HERO.alt}
-            className="w-full transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-            loading="lazy"
-          />
-        </button>
-      </div>
-
-      <div className="mx-auto mt-6 max-w-2xl columns-2 gap-4 sm:mt-8 sm:gap-6">
-        {GRID.map((photo, i) => (
+      <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-6 sm:mt-16 sm:grid-cols-3 sm:gap-6">
+        {ALL.map((photo, i) => (
           <button
             key={photo.id}
             type="button"
-            onClick={() => setLightboxIndex(i + 1)}
-            className="group mb-4 block w-full overflow-hidden rounded-xl border border-gold/50 sm:mb-5"
-            style={{ breakInside: 'avoid' }}
+            onClick={() => setLightboxIndex(i)}
+            className="group block w-full overflow-hidden rounded-2xl border border-gold bg-cream-dark/40"
+            style={{ boxShadow: '0 0 0 5px var(--color-cream), 0 0 0 6px var(--color-gold)' }}
             aria-label="Open photograph"
           >
             <img
               src={thumbSrc(photo.id)}
               alt={photo.alt}
-              className="w-full transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+              className="aspect-[2/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
               loading="lazy"
             />
           </button>
