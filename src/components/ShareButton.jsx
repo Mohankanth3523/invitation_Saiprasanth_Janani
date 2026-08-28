@@ -41,7 +41,7 @@ export default function ShareButton() {
         type="button"
         onClick={handleShare}
         aria-label="Share this invitation"
-        className="flex h-12 w-12 items-center justify-center rounded-full border border-gold bg-maroon text-gold-light shadow-lg shadow-maroon-dark/30 transition-transform hover:scale-105"
+        className="flex h-10 w-10 items-center justify-center rounded-full border border-gold bg-maroon text-gold-light shadow-lg shadow-maroon-dark/30 transition-transform hover:scale-105 sm:h-12 sm:w-12"
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
           <circle cx="18" cy="5.5" r="2.5" stroke="currentColor" strokeWidth="1.4" />

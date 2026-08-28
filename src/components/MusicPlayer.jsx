@@ -36,7 +36,7 @@ export default function MusicPlayer() {
         aria-label={playing ? 'Pause background music' : 'Play background music'}
         aria-pressed={playing}
         title={available ? undefined : 'Background music not available'}
-        className="flex h-12 w-12 items-center justify-center rounded-full border border-gold bg-maroon text-gold-light shadow-lg shadow-maroon-dark/30 transition-transform hover:scale-105 disabled:cursor-not-allowed disabled:opacity-40"
+        className="flex h-10 w-10 items-center justify-center rounded-full border border-gold bg-maroon text-gold-light shadow-lg shadow-maroon-dark/30 transition-transform hover:scale-105 disabled:cursor-not-allowed disabled:opacity-40 sm:h-12 sm:w-12"
       >
         <svg
           width="18"
