@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import OrnamentDivider from './OrnamentDivider'
 
-const ALL = [3, 1, 12].map((id) => ({
+const ALL = [1, 12].map((id) => ({
   id,
   alt: 'Saiprasanth and Janani, pre-wedding photograph',
 }))
@@ -78,7 +78,7 @@ export default function Gallery() {
         Every picture tells a story, every moment becomes a memory.
       </p>
 
-      <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-6 sm:mt-16 sm:grid-cols-3 sm:gap-6">
+      <div className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-6 sm:mt-16 sm:grid-cols-2 sm:gap-8">
         {ALL.map((photo, i) => (
           <button
             key={photo.id}
